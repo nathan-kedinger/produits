@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.entities.Categorie;
 import com.example.demo.entities.Produit;
 import com.example.demo.repository.ProduitRepository;
 import org.junit.jupiter.api.Test;
@@ -49,4 +50,34 @@ class ProduitsApplicationTests {
 		}
 	}
 
+	@Test
+	public void testFindProduitByNom()
+	{
+		List<Produit> produits = produitRepository.findByNomProduit("PC Dell");
+		System.out.println(produits);
+	}
+	@Test
+	public void testFindProduitByNomContains()
+	{
+		List<Produit> produits = produitRepository.findByNomProduitContains("PC");
+		System.out.println(produits);
+	}
+
+	@Test
+	public void testFindProduitByNomPrix()
+	{
+		List<Produit> produits = produitRepository.findByNomPrix("PC Asus", 1000.0);
+		System.out.println(produits);
+	}
+	@Test
+	public void testFindByCategorie()
+	{
+		Categorie categorie = new Categorie();
+		categorie.setIdCategorie(1L);
+		List<Produit> produits = produitRepository.findByCategorie(categorie);
+		for (Produit produit : produits)
+		{
+			System.out.println(produit);
+		}
+	}
 }

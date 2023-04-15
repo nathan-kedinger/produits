@@ -1,9 +1,6 @@
 package com.example.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
@@ -14,6 +11,9 @@ public class Produit {
     private String nomProduit;
     private Double prixProduit;
     private Date dateCreation;
+
+    @ManyToOne
+    private Categorie categorie;
 
     public Produit() {
         super();
@@ -57,6 +57,13 @@ public class Produit {
         this.dateCreation = dateCreation;
     }
 
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
     @Override
     public String toString() {
         return "Produit{" +
