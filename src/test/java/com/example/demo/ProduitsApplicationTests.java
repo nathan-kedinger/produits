@@ -80,4 +80,33 @@ class ProduitsApplicationTests {
 			System.out.println(produit);
 		}
 	}
+
+	@Test
+	public void testFindByCategorieIdCategorie()
+	{
+		List<Produit> produits = produitRepository.findByCategorieIdCategorie(1L);
+		for (Produit produit : produits ){
+			System.out.println(produit);
+		}
+	}
+
+	@Test
+	public void testfindByOrderByNomProduitAsc()
+	{
+		List<Produit> produits = produitRepository.findByOrderByNomProduitAsc();
+		for (Produit produit : produits)
+		{
+			System.out.println(produit);
+		}
+	}
+
+	@Test
+	public void testTrierProduitsNomsPrix()
+	{
+		List<Produit> produits = produitRepository.trierProduitsNomsPrix();
+		for (Produit produit : produits)
+		{
+			System.out.println(produit);
+		}
+	}
 }

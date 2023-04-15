@@ -22,6 +22,15 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
     @Query("select p from Produit p where p.nomProduit like %:nom and p.prixProduit > :prix")
     List<Produit> findByNomPrix(@Param("nom") String nom,@Param("prix") Double prix);
 
+
     @Query("select p from Produit p where p.categorie = ?1")
     List<Produit> findByCategorie(Categorie categorie);
+
+    List<Produit> findByCategorieIdCategorie(Long id);
+
+    //Trier les données selon leur nom
+    List<Produit> findByOrderByNomProduitAsc();
+
+    @Query("select p from Produit p order by p.nomProduit DESC, p.prixProduit ASC")
+    List<Produit> trierProduitsNomsPrix ();
 }
