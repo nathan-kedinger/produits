@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +19,6 @@ public class Categorie {
     private String nameCategorie;
     private String descriptionCategorie;
     @OneToMany(mappedBy = "categorie")
+    @JsonIgnore //empeche de retourner la liste de produit pour éviter une boucle infinie
     private List<Produit> produits;
 }

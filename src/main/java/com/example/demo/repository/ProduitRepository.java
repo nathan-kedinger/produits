@@ -5,9 +5,11 @@ import com.example.demo.entities.Produit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource(path = "rest")
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
     // Utilisation des structures internes à Spring, la fonction doit être au format findBy suivi du nom exact de la variable appellée dans la classe visée
